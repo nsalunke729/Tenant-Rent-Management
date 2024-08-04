@@ -64,7 +64,7 @@ public class RentPaymentController {
     // Update an existing rent payment
     @PutMapping("/{id}")
     public ResponseEntity<RentPayment> updateRentPayment(@PathVariable Integer id, @RequestBody RentPayment rentPayment) {
-        if (!rentPaymentService.getRentPaymentById(id).equals(rentPayment) || !tenantService.existsById(rentPayment.getTenantId())) {
+        if (!id.equals(rentPayment.getId()) || !tenantService.existsById(rentPayment.getTenantId())) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         rentPayment.setId(id);
