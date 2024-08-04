@@ -1,0 +1,17 @@
+com\springRest\RestAPI\entity\RentPayment.class
+com\springRest\RestAPI\entity\Tenant.class
+com\springRest\RestAPI\controller\RentPaymentController.class
+com\springRest\RestAPI\controller\tenants.class
+com\springRest\RestAPI\service\RentPaymentService.class
+com\springRest\RestAPI\RestApiApplication.class
+com\springRest\RestAPI\controller\PropertyController.class
+com\springRest\RestAPI\exception\RentPaymentNotFoundException.class
+com\springRest\RestAPI\service\TenantService.class
+com\springRest\RestAPI\dto\TenantDto.class
+com\springRest\RestAPI\dto\RentPaymentDto.class
+com\springRest\RestAPI\util\RentPaymentUtils.class
+com\springRest\RestAPI\controller\TenantController.class
+com\springRest\RestAPI\exception\TenantNotFoundException.class
+com\springRest\RestAPI\repository\RentPaymentRepository.class
+com\springRest\RestAPI\repository\TenantRepository.class
+com\springRest\RestAPI\util\TenantUtils.class

@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "TenantRentApplication",
+            "request": "launch",
+            "mainClass": "com.springRest.tenantRent.TenantRentApplication",
+            "projectName": "TenantRent"
+        },
+        {
+            "type": "java",
+            "name": "DatabaseTest",
+            "request": "launch",
+            "mainClass": "com.springRest.tenantRent.DatabaseTest",
+            "projectName": "Tenant Rent Backend"
+        },
+        {
+            "type": "java",
+            "name": "DatabaseTest",
+            "request": "launch",
+            "mainClass": "com.springRest.DatabaseTest",
+            "projectName": "Tenant Rent Backend"
+        },
+        {
+            "type": "java",
+            "name": "TenantRentApplication",
+            "request": "launch",
+            "mainClass": "com.springRest.tenantRent.TenantRentApplication",
+            "projectName": "Tenant Rent Application",
+            "vmArgs": " -Dspring.profiles.active=dev -Dspring-boot.run.profiles=dev -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=51032 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=RestAPI"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Main<build>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.springRest.Main",
+            "projectName": "build",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=57187 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=build"
+        }
+    ]
+}
