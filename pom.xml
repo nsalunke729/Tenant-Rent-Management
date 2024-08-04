@@ -9,11 +9,11 @@
         <relativePath/> 
     </parent>
     <groupId>com.springRest</groupId>
-    <artifactId>RestAPI</artifactId>
+    <artifactId>TenantRent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>REST API</name>
-    <description>Spring Boot for REST API</description>
+    <name>TENANT RENT BACKEND</name>
+    <description>Spring Boot for Tenant Rent</description>
     <properties>
         <java.version>21</java.version>
     </properties>
