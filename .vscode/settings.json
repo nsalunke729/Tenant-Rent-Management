@@ -1,3 +1,8 @@
 {
-    "java.compile.nullAnalysis.mode": "automatic"
+    "java.compile.nullAnalysis.mode": "automatic",
+    "dataworkspace.excludedProjects": [
+        "Tenant Rent Backend/src/main/java/com/springRest/tenantRent/controller/test123/test123.sqlproj"
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.debug.settings.onBuildFailureProceed": true
 }
