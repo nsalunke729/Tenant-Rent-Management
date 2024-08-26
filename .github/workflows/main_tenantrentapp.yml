@@ -23,7 +23,7 @@ jobs:
           distribution: 'microsoft'
 
       - name: Build with Maven
-        working-directory: tenant-app-backend
+        working-directory: Tenant Rent Backend
         run: mvn clean install
 
       - name: Upload artifact for deployment job
