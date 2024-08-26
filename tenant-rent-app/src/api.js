@@ -75,7 +75,7 @@ export const deleteTenant = async (id) => {
 };
 
 // Similarly, add functions for rent payments
-export const getRentPayments = async () => {
+export const getRentPaymentsOld = async () => {
     try {
         const response = await apiClient.get('/rentpayments');
         return response.data;
@@ -84,6 +84,17 @@ export const getRentPayments = async () => {
         throw error;
     }
 };
+
+export const getRentPayments = async (page = 0, size = 10) => {
+    try {
+        const response = await apiClient.get(`/rentpayments?page=${page}&size=${size}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching rent payments', error);
+        throw error;
+    }
+};
+
 
 // ... Other rent payment methods
 // Function to create a new rentpayments

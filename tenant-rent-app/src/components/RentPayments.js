@@ -18,19 +18,32 @@ const RentPayments = () => {
         paymentMethod: ''
     });
     const [editingPayment, setEditingPayment] = useState(null);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [pageSize, setPageSize] = useState(10);
+    const [totalPages, setTotalPages] = useState(0);
 
     useEffect(() => {
-        fetchRentPayments();
-    }, []);
+        fetchRentPayments(currentPage, pageSize);
+    }, [currentPage, pageSize]);
 
-    const fetchRentPayments = async () => {
+    const fetchRentPayments = async (page, size) => {
         try {
-            const data = await getRentPayments();
-            setRentPayments(data);
+            const data = await getRentPayments(page, size);
+            if (data && data.content) {
+                setRentPayments(data.content);
+                setTotalPages(data.totalPages);
+            } else {
+                // Handle unexpected data structure
+                setRentPayments([]);
+                setTotalPages(0);
+            }
         } catch (error) {
             console.error('Error fetching rent payments', error);
+            setRentPayments([]); // Set to empty array in case of error
+            setTotalPages(0);
         }
     };
+
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -46,7 +59,7 @@ const RentPayments = () => {
             } else {
                 await createRentpayments(newPayment);
             }
-            fetchRentPayments();
+            fetchRentPayments(currentPage, pageSize);
             setNewPayment({
                 tenantId: '',
                 amount: '',
@@ -71,15 +84,20 @@ const RentPayments = () => {
     const handleDelete = async (id) => {
         try {
             await deleteRentpayments(id);
-            fetchRentPayments();
+            fetchRentPayments(currentPage, pageSize);
         } catch (error) {
             console.error('Error deleting rent payment', error);
         }
     };
 
+    const handlePageChange = (newPage) => {
+        setCurrentPage(newPage);
+    };
+
     return (
         <div className="container">
             <h1>Rent Payments</h1>
+            {/* Form for adding/updating payments */}
             <form onSubmit={handleSubmit} className="mb-4">
                 <div className="form-group">
                     <label htmlFor="tenantId">Tenant ID</label>
@@ -146,41 +164,66 @@ const RentPayments = () => {
                     </button>
                 )}
             </form>
-            <table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Tenant ID</th>
-                        <th>Amount</th>
-                        <th>Payment Date</th>
-                        <th>Payment Method</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {rentPayments.map((payment) => (
-                        <tr key={payment.id}>
-                            <td>{payment.tenantId}</td>
-                            <td>{payment.amount}</td>
-                            <td>{new Date(payment.paymentDate).toLocaleDateString()}</td>
-                            <td>{payment.paymentMethod}</td>
-                            <td>
-                                <button
-                                    className="btn btn-warning btn-sm"
-                                    onClick={() => handleEdit(payment)}
-                                >
-                                    Edit
-                                </button>
-                                <button
-                                    className="btn btn-danger btn-sm ml-2"
-                                    onClick={() => handleDelete(payment.id)}
-                                >
-                                    Delete
-                                </button>
-                            </td>
+
+            {/* Table displaying rent payments */}
+            {rentPayments.length > 0 ? (
+                <table className="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Tenant ID</th>
+                            <th>Amount</th>
+                            <th>Payment Date</th>
+                            <th>Payment Method</th>
+                            <th>Actions</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {rentPayments.map((payment) => (
+                            <tr key={payment.id}>
+                                <td>{payment.tenantId}</td>
+                                <td>{payment.amount}</td>
+                                <td>{new Date(payment.paymentDate).toLocaleDateString()}</td>
+                                <td>{payment.paymentMethod}</td>
+                                <td>
+                                    <button
+                                        className="btn btn-warning btn-sm"
+                                        onClick={() => handleEdit(payment)}
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        className="btn btn-danger btn-sm ml-2"
+                                        onClick={() => handleDelete(payment.id)}
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            ) : (
+                <p>No rent payments found.</p>
+            )}
+
+            {/* Pagination controls */}
+            <div className="pagination">
+                <button
+                    className="btn btn-primary"
+                    onClick={() => handlePageChange(currentPage - 1)}
+                    disabled={currentPage === 0}
+                >
+                    Previous
+                </button>
+                <span className="mx-2">Page {currentPage + 1} of {totalPages}</span>
+                <button
+                    className="btn btn-primary"
+                    onClick={() => handlePageChange(currentPage + 1)}
+                    disabled={currentPage >= totalPages - 1}
+                >
+                    Next
+                </button>
+            </div>
         </div>
     );
 };
