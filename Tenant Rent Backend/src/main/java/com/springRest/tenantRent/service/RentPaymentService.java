@@ -5,7 +5,8 @@ import java.util.Collections;
 import com.springRest.tenantRent.repository.RentPaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,9 +20,9 @@ public class RentPaymentService {
         this.rentPaymentRepository = rentPaymentRepository;
     }
 
-    // Fetch all rent payments
-    public List<RentPayment> getAllRentPayments() {
-        return rentPaymentRepository.findAll();
+    // Fetch all rent payments page wise
+    public Page<RentPayment> getAllRentPayments(Pageable pageable) {
+        return rentPaymentRepository.findAll(pageable);
     }
 
     // Fetch rent payment by ID
