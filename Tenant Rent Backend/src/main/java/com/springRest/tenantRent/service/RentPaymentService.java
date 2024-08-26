@@ -27,7 +27,7 @@ public class RentPaymentService {
 
     // Fetch rent payment by ID
     public RentPayment getRentPaymentById(Integer id) {
-        return rentPaymentRepository.findById(id).orElse(null);
+        return rentPaymentRepository.findById(Long.valueOf(id)).orElse(null);
     }
 
     // Create or update a rent payment
@@ -37,12 +37,12 @@ public class RentPaymentService {
 
     // Delete a rent payment by ID
     public void deleteRentPayment(Integer id) {
-        rentPaymentRepository.deleteById(id);
+        rentPaymentRepository.deleteById(Long.valueOf(id));
     }
     
     // Fetch all rent payments by tenant ID
     public List<RentPayment> getRentPaymentsByTenantId(Integer tenantId) {
-        Optional<RentPayment> rentPayment = rentPaymentRepository.findById(tenantId);
+        Optional<RentPayment> rentPayment = rentPaymentRepository.findById(Long.valueOf(tenantId));
         return rentPayment.map(Collections::singletonList)
                           .orElse(Collections.emptyList());
     }
