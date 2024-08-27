@@ -15,7 +15,7 @@ function Login() {
 
         try {
             // Make a request to your backend API for login
-            const response = await axios.post('http://localhost:8081/api/login', {
+            const response = await axios.post('http://51.20.252.82:8081/api/login', {
                 username,
                 password,
             });
