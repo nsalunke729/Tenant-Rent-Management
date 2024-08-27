@@ -19,12 +19,11 @@ const RentPayments = () => {
     });
     const [editingPayment, setEditingPayment] = useState(null);
     const [currentPage, setCurrentPage] = useState(0);
-    const [pageSize, setPageSize] = useState(10);
     const [totalPages, setTotalPages] = useState(0);
 
     useEffect(() => {
-        fetchRentPayments(currentPage, pageSize);
-    }, [currentPage, pageSize]);
+        fetchRentPayments(currentPage, 10);
+    }, [currentPage]);
 
     const fetchRentPayments = async (page, size) => {
         try {
@@ -59,7 +58,7 @@ const RentPayments = () => {
             } else {
                 await createRentpayments(newPayment);
             }
-            fetchRentPayments(currentPage, pageSize);
+            fetchRentPayments(currentPage, 10);
             setNewPayment({
                 tenantId: '',
                 amount: '',
@@ -84,7 +83,7 @@ const RentPayments = () => {
     const handleDelete = async (id) => {
         try {
             await deleteRentpayments(id);
-            fetchRentPayments(currentPage, pageSize);
+            fetchRentPayments(currentPage, 10);
         } catch (error) {
             console.error('Error deleting rent payment', error);
         }
