@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getRentPayments, createRentpayments, updateRentpayments, deleteRentpayments } from '../api';
+import './RentPayments.css';  // Import the new CSS file
+
 
 const paymentMethods = [
     'Credit Card',
@@ -94,7 +96,7 @@ const RentPayments = () => {
     };
 
     return (
-        <div className="container">
+        <div className="container" id="rent-payments">
             <h1>Rent Payments</h1>
             {/* Form for adding/updating payments */}
             <form onSubmit={handleSubmit} className="mb-4">

@@ -32,7 +32,14 @@
     font-weight: bold;
 }
 
+.navbar {
+    position: relative; /* or fixed if you want it to stay on top during scroll */
+    z-index: 1000; /* Ensure it's higher than other content */
+}
+
 .navbar-nav .nav-link {
+    position: relative; /* or absolute, fixed */
+    z-index: 1001; /* Higher than .navbar to ensure it's on top */
     margin-right: 15px;
 }
 

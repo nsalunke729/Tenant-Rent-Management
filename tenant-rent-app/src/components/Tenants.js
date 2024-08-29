@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getTenants, createTenant, updateTenant, deleteTenant } from '../api';
+import './Tenants.css';
 
 const Tenants = () => {
     const [tenants, setTenants] = useState([]);
@@ -69,7 +70,7 @@ const Tenants = () => {
     };
 
     return (
-        <div className="container">
+        <div className="container" id="tenants">
             <h1>Tenants</h1>
             <form onSubmit={handleSubmit} className="mb-4">
                 <div className="form-group">
