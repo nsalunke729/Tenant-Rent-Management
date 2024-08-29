@@ -12,7 +12,8 @@ function getBasicAuthHeader(username, password) {
 };
 
 const apiClient = axios.create({
-    baseURL: 'http://51.20.252.82:8081/api', // Replace with your back-end URL
+    //baseURL: 'https://localhost:8443/api', // Replace with your back-end URL
+    baseURL: 'https://51.20.252.82:8443/api',
     headers: {
         'Content-Type': 'application/json',
         // Generate the Basic Authentication header using the utility function

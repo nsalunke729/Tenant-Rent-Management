@@ -8,6 +8,7 @@ com\springRest\tenantRent\repository\RentPaymentRepository.class
 com\springRest\tenantRent\service\SecurityConfig.class
 com\springRest\tenantRent\service\TenantService.class
 com\springRest\tenantRent\controller\LoginController.class
+com\springRest\tenantRent\controller\test123\test123.sqlproj
 com\springRest\tenantRent\exception\TenantNotFoundException.class
 com\springRest\tenantRent\dto\TenantDto.class
 com\springRest\tenantRent\configuration\WebConfig.class

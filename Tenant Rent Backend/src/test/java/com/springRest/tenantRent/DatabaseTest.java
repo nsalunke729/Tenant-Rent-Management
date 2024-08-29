@@ -10,7 +10,7 @@ public class DatabaseTest {
         try {
             // It's no longer necessary to explicitly load the driver class with Class.forName
             String connectionUrl = "jdbc:mysql://niranjantest.mysql.database.azure.com:3306/tenant-rent?useSSL=true&requireSSL=false";  
-            Connection con = DriverManager.getConnection(connectionUrl,"niranjan","Abcd1234");  
+            Connection con = DriverManager.getConnection(connectionUrl,"niranjan","password");  
             if (con != null) {
                 System.out.println("Connected to the database!");
             }
