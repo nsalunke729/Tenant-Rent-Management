@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.88123c45.css",
+    "main.js": "/static/js/main.1d828ee2.js",
+    "static/js/453.1adf518d.chunk.js": "/static/js/453.1adf518d.chunk.js",
+    "static/media/tenants-background.jpg": "/static/media/tenants-background.a6533ebd9f1dbc685647.jpg",
+    "static/media/rent-payments-background.jpg": "/static/media/rent-payments-background.64aef935cf5659b9eeb6.jpg",
+    "static/media/login-background.jpg": "/static/media/login-background.11ddb5e16f8a158530b9.jpg",
+    "index.html": "/index.html",
+    "main.88123c45.css.map": "/static/css/main.88123c45.css.map",
+    "main.1d828ee2.js.map": "/static/js/main.1d828ee2.js.map",
+    "453.1adf518d.chunk.js.map": "/static/js/453.1adf518d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.88123c45.css",
+    "static/js/main.1d828ee2.js"
+  ]
+}
