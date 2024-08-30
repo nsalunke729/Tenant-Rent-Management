@@ -1,6 +1,14 @@
 Tenant Rent Management  
 Tenant Rent Management is a full-stack application designed to manage tenant information and rent payments. This application consists of a backend service developed in Java Spring Boot and a frontend client developed using React. The app allows users to add, update, delete, and view tenants and their rent payments seamlessly.
 
+Here’s how you can access my Tenant Rent Management application:        
+1. Access the Backend: Navigate to https://51.20.252.82:8443/api/login.        
+2. Trust the Certificate: Click "Advanced" and then "Proceed to 51.20.252.82 (unsafe)" to trust the local keystore certificate.        
+3. Use the Frontend: Head over to https://tenant-rental-app.netlify.app/         
+to start using the application through the frontend.        
+    
+And that's it! You’re all set to explore the features of my application. 🚀        
+
 Project Structure
 
 tenant-rent-management/  
