@@ -42,6 +42,7 @@ public class TenantController {
     // Create a new tenant
     @PostMapping
     public ResponseEntity<Tenant> createTenant(@RequestBody Tenant tenant) {
+    	
         Tenant createdTenant = tenantService.saveTenant(tenant);
         return new ResponseEntity<>(createdTenant, HttpStatus.CREATED);
     }
