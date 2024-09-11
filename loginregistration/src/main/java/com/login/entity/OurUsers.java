@@ -32,17 +32,76 @@ public class OurUsers implements UserDetails{
 	private String city;
 	
 	private String role;
-
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public OurUsers() {
+		super();
 	}
+
+	public OurUsers(Integer id, String name, String email, String password, String city, String role) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.city = city;
+		this.role = role;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	
+
+	   @Override
+	    public Collection<? extends GrantedAuthority> getAuthorities() {
+	        return List.of(new SimpleGrantedAuthority(role));
+	    }
 
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return null;
+		return password;
 	}
 
 	@Override
